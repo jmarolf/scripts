@@ -1,0 +1,2 @@
+Install-WindowsUpdate -GetUpdatesFromMS -acceptEula -SuppressReboots -Criteria "IsInstalled=0 and Type='Driver'"
+Install-WindowsUpdate -GetUpdatesFromMS -acceptEula -SuppressReboots -Criteria "IsInstalled=0 and Type='Software'"
