@@ -2,7 +2,8 @@
 Param(
   [string][Alias('a')]$alias,
   [switch] $bugfix,
-  [switch] $feature
+  [switch] $feature,
+  [switch] $infra
 )
 
 try {
@@ -14,9 +15,13 @@ try {
     
     if ($feature) {
         & git checkout -b feature/$alias upstream/master
+      }
+      
+    if ($infra) {
+        & git checkout -b infrastructure/$alias upstream/master
     }
     
-    if ((-not $bugfix) -and (-not $feature)) {
+    if ((-not $bugfix) -and (-not $feature) -and (-not $infra)) {
         & git checkout -b $alias upstream/master
     }
 }
