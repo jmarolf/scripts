@@ -6,4 +6,4 @@ param(
 
 $folder = Split-Path $PSCommandPath
 $script = Join-Path $folder "vs.ps1"
-& $script -channel:"VisualStudio.16.Preview" -title:"public preview"
+& $script -channel:"VisualStudio.16.int.main" -title:"internal main"
