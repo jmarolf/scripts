@@ -21,10 +21,10 @@ function append-path {
 }
 
 # Only support one prompt environment at a time
-# if ($PromptEnvironment -ne $null) {
-#     write-host "error: Prompt is already in a custom environment." -ForegroundColor Red
-#     exit 1
-# }
+if ($PromptEnvironment -ne $null) {
+    write-host "error: Prompt is already in a custom environment." -ForegroundColor Red
+    exit 1
+}
 
 $vswhere = join-path ( join-path (join-path ${env:ProgramFiles(x86)} "Microsoft Visual Studio") "Installer") "vswhere.exe"
 $args = @('-prerelease', '-format', 'json')
