@@ -7,23 +7,24 @@ Param(
 )
 
 try {
-    & git stash
-    & git fetch --all --prune
+    $currentDirectory = Get-Location
+    $path = $currentDirectory -replace [RegEx]::Escape("C:\source\"), "C:\source\worktree\"
+    $branch = $alias
     if ($bugfix) {
-        & git checkout -b bugfix/$alias upstream/master
+        $branch = "bugfix/$alias"
     }
-    
     if ($feature) {
-        & git checkout -b feature/$alias upstream/master
-      }
-      
+        $branch = "feature/$alias"
+    }
     if ($infra) {
-        & git checkout -b infrastructure/$alias upstream/master
+        $branch = "infrastructure/$alias"
     }
+    $path = Join-Path $path $branch
     
-    if ((-not $bugfix) -and (-not $feature) -and (-not $infra)) {
-        & git checkout -b $alias upstream/master
-    }
+    New-Item -ItemType Directory -Force -Path $path
+    & git fetch --all --prune
+    & git worktree add --track -b $branch $path upstream/main
+    Set-Location -LiteralPath $path
 }
 catch {
   Write-Host $_.ScriptStackTrace
