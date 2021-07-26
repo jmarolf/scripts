@@ -27,7 +27,7 @@ if ($PromptEnvironment -ne $null) {
 }
 
 $vswhere = join-path ( join-path (join-path ${env:ProgramFiles(x86)} "Microsoft Visual Studio") "Installer") "vswhere.exe"
-$args = @('-prerelease', '-format', 'json')
+$args = @('-all', '-prerelease', '-format', 'json')
 $vsInfos =& $vswhere $args | ConvertFrom-Json
 ForEach ($vsInfo In $vsInfos) {
     if ($vsInfo.channelId -like "*$channel*") {
