@@ -49,34 +49,9 @@ if ((test-path $path) -eq $false) {
 $cmdPath = join-path $path "Launch-VsDevShell.ps1"
 & $cmdPath -VsInstanceId:$instanceId
 
-
-# if ((test-path $cmdPath) -eq $false) {
-#     write-warning "File not found: $cmdPath"
-#     exit 1
-# }
-
-# # Run VsDevCmd.bat and then dump all environment variables, so we can
-# # overwrite ours with theirs
-# $tempFile = [IO.Path]::GetTempFileName()
-
-# cmd /c " `"$cmdPath`" && set > `"$tempFile`" "
-
-# Get-Content $tempFile | %{
-#     if ($_ -match "^(.*?)=(.*)$") {
-#         Set-Content "env:\$($matches[1])" $matches[2]
-#     }
-# }
-
-# # Optionally add the external web tools unless skipped
-# if ($noWeb -eq $false) {
-#     $path = join-path (join-path (join-path $basePath $edition) "Web") "External"
-
-#     if (test-path $path) {
-#         append-path $path
-#     } else {
-#         write-warning "Path $path not found; specify -noWeb to skip searching for web tools"
-#     }
-# }
-
 # Set the prompt environment variable (printed in our prompt function)
-$global:PromptEnvironment = "  $title v$vsInstallationVersion "
+$vsMajorVersion = $vsInstallationVersion.Split('.')[0]
+$vsMinorVersion = $vsInstallationVersion.Split('.')[1]
+$displayString = "$vsMajorVersion.$vsMinorVersion"
+
+$global:PromptEnvironment = "  v$displayString "

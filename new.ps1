@@ -8,7 +8,7 @@ Param(
 
 try {
     $currentDirectory = Get-Location
-    $path = $currentDirectory -replace [RegEx]::Escape("C:\source\"), "C:\source\worktree\"
+    $path = $currentDirectory -replace [RegEx]::Escape("C:\source\"), "C:\source\_w\"
     $branch = $alias
     if ($bugfix) {
         $branch = "bugfix/$alias"
