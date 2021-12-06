@@ -7,8 +7,9 @@ Param(
 )
 
 try {
-    $currentDirectory = Get-Location
-    $path = $currentDirectory -replace [RegEx]::Escape("C:\source\"), "C:\source\_w\"
+    $alias = "codestyle-analysis-mode-fix"
+    $bugfix = $true
+    $path = "C:\source\_w\"
     $branch = $alias
     if ($bugfix) {
         $branch = "bugfix/$alias"
