@@ -7,8 +7,6 @@ Param(
 )
 
 try {
-    $alias = "codestyle-analysis-mode-fix"
-    $bugfix = $true
     $path = "C:\source\_w\"
     $branch = $alias
     if ($bugfix) {
