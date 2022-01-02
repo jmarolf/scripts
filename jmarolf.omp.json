@@ -6,12 +6,21 @@
             "type": "prompt",
             "alignment": "left",
             "segments": [{
-                    "type": "os",
+                    "type": "shell",
                     "style": "diamond",
                     "leading_diamond": "╭─",
                     "trailing_diamond": "",
                     "foreground": "#310b0b",
-                    "background": "#1CE815"
+                    "background": "#1CE815",
+                    "properties": {
+                        "mapped_shell_names": {
+                            "pwsh": " ps",
+                            "fish": " fish",
+                            "bash": " bash",
+                            "zsh": " zsh",
+                            "cmd": " cmd"
+                        }
+                    }
                 },
                 {
                     "type": "envvar",
