@@ -1,0 +1,1 @@
+load(io.popen('oh-my-posh --config="C:/source/jmarolf/scripts/jmarolf.omp.json" --init --shell cmd'):read("*a"))()
