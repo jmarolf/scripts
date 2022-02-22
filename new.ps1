@@ -13,7 +13,7 @@ try {
         $branch = "bugfix/$alias"
     }
     if ($feature) {
-        $branch = "feature/$alias"
+        $branch = "features/$alias"
     }
     if ($infra) {
         $branch = "infrastructure/$alias"
