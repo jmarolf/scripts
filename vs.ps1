@@ -5,7 +5,7 @@ param(
 $vswhere = join-path ( join-path (join-path ${env:ProgramFiles(x86)} "Microsoft Visual Studio") "Installer") "vswhere.exe"
 $args = @('-all', '-prerelease', '-format', 'json')
 $hightestVersion = [System.Management.Automation.SemanticVersion]"0.0.0"
-$vsInfos =& $vswhere $args | ConvertFrom-Json
+$vsInfos =& "$vswhere" $args | ConvertFrom-Json
 ForEach ($vsInfo In $vsInfos) {
     if ($vsInfo.channelId -like $channel) {
         $vsInstallDir = $vsInfo.installationPath
@@ -36,4 +36,4 @@ if ((test-path $path) -eq $false) {
 }
 
 $cmdPath = join-path $path "Launch-VsDevShell.ps1"
-& $cmdPath -VsInstanceId:$instanceId
+& $cmdPath -VsInstanceId:$instanceId -Arch amd64 -VsWherePath "$vswhere"
