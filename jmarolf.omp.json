@@ -13,8 +13,9 @@
               "bash": "\uf17c bash",
               "cmd": "\ue70f cmd",
               "fish": "\uf17c fish",
-              "pwsh": "\ue70f ps",
-              "zsh": "\uf17c zsh"
+              "pwsh": "\ue70f pwsh",
+              "zsh": "\uf17c zsh",
+              "powershell": "\ue70f powershell"
             }
           },
           "style": "diamond",
@@ -22,18 +23,14 @@
           "type": "shell"
         },
         {
-          "background": "#c62293",
+          "background": "#67207a",
           "foreground": "#ffffff",
-          "properties": {
-            "prefix": "<parentBackground>\ue0b0</> \ue70c ",
-            "root_icon": "\uf292",
-            "var_name": "VSCMD_VER"
-          },
           "style": "diamond",
-          "type": "envvar"
+          "template": "{{ if .Env.VSCMD_VER }}<parentBackground>\ue0b0</> \ue70c {{ .Env.VSCMD_VER }} {{ end }}",
+          "type": "text"
         },
         {
-          "background": "#321279",
+          "background": "#5027d5",
           "foreground": "#ffffff",
           "properties": {
             "root_icon": "\uf292"
