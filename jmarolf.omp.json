@@ -15,10 +15,10 @@
               "fish": "\uf17c fish",
               "pwsh": "\ue70f ps",
               "zsh": "\uf17c zsh"
-            },
-            "template": " {{ .Name }} "
+            }
           },
           "style": "diamond",
+          "template": " {{ .Name }} ",
           "type": "shell"
         },
         {
@@ -36,10 +36,10 @@
           "background": "#321279",
           "foreground": "#ffffff",
           "properties": {
-            "root_icon": "\uf292",
-            "template": "<parentBackground>\ue0b0</> \ue77f {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} "
+            "root_icon": "\uf292"
           },
           "style": "diamond",
+          "template": "<parentBackground>\ue0b0</> \ue77f {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
           "type": "dotnet"
         },
         {
@@ -47,10 +47,10 @@
           "foreground": "#310b0b",
           "powerline_symbol": "\ue0b0",
           "properties": {
-            "style": "folder",
-            "template": " \ue5ff {{ .Path }} "
+            "style": "folder"
           },
           "style": "powerline",
+          "template": " \ue5ff {{ .Path }} ",
           "type": "path"
         },
         {
@@ -66,10 +66,10 @@
           "properties": {
             "branch_icon": "\uf418 ",
             "fetch_status": true,
-            "fetch_upstream_icon": true,
-            "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350> \uf046 {{ .Staging.String }}</>{{ end }} "
+            "fetch_upstream_icon": true
           },
           "style": "powerline",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350> \uf046 {{ .Staging.String }}</>{{ end }} ",
           "type": "git"
         },
         {
@@ -77,10 +77,10 @@
           "foreground": "#ffffff",
           "leading_diamond": "<transparent,background>\ue0b0</>",
           "properties": {
-            "template": " {{ .CurrentDate | date .Format }} ",
             "time_format": "3:04PM"
           },
           "style": "diamond",
+          "template": " {{ .CurrentDate | date .Format }} ",
           "trailing_diamond": "\ue0b4",
           "type": "time"
         }
@@ -93,10 +93,8 @@
       "segments": [
         {
           "foreground": "#21c7c7",
-          "properties": {
-            "template": "\u2570\u2500"
-          },
           "style": "plain",
+          "template": "\u2570\u2500",
           "type": "text"
         },
         {
@@ -105,10 +103,10 @@
             "{{ if gt .Code 0 }}#ef5350{{ end }}"
           ],
           "properties": {
-            "always_enabled": true,
-            "template": "\ue285\ufb00 "
+            "always_enabled": true
           },
           "style": "plain",
+          "template": "\ue285\ufb00 ",
           "type": "exit"
         }
       ],
@@ -116,5 +114,5 @@
     }
   ],
   "osc99": true,
-  "version": 1
+  "version": 2
 }
