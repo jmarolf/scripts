@@ -18,42 +18,44 @@
               "bash": "\uf17c bash",
               "cmd": "\ue70f cmd",
               "fish": "\uf17c fish",
-              "pwsh": "\ue70f ps",
-              "zsh": "\uf17c zsh"
+              "pwsh": "\ue70f pwsh",
+              "zsh": "\uf17c zsh",
+              "powershell": "\ue70f powershell"
             }
-          }
+          },
+          "style": "diamond",
+          "template": " {{ .Name }} ",
+          "type": "shell"
         },
         {
-          "type": "envvar",
-          "style": "diamond",
+          "background": "#67207a",
           "foreground": "#ffffff",
-          "background": "#c62293",
-          "properties": {
-            "prefix": "<parentBackground>\ue0b0</> \ue70c ",
-            "root_icon": "\uf292",
-            "var_name": "VSCMD_VER"
-          }
+          "style": "diamond",
+          "template": "{{ if .Env.VSCMD_VER }}<parentBackground>\ue0b0</> \ue70c {{ .Env.VSCMD_VER }} {{ end }}",
+          "type": "text"
         },
         {
-          "type": "dotnet",
-          "style": "diamond",
+          "background": "#5027d5",
           "foreground": "#ffffff",
           "background": "#321279",
           "template": "<parentBackground>\ue0b0</> \ue77f {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
           "properties": {
             "root_icon": "\uf292"
-          }
+          },
+          "style": "diamond",
+          "template": "<parentBackground>\ue0b0</> \ue77f {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
+          "type": "dotnet"
         },
         {
-          "type": "path",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b0",
-          "foreground": "#310b0b",
           "background": "#ff9036",
-          "template": " \ue5ff {{ .Path }} ",
+          "foreground": "#310b0b",
+          "powerline_symbol": "\ue0b0",
           "properties": {
             "style": "folder"
-          }
+          },
+          "style": "powerline",
+          "template": " \ue5ff {{ .Path }} ",
+          "type": "path"
         },
         {
           "type": "git",
@@ -72,14 +74,20 @@
             "branch_icon": "\uf418 ",
             "fetch_status": true,
             "fetch_upstream_icon": true
-          }
+          },
+          "style": "powerline",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350> \uf046 {{ .Staging.String }}</>{{ end }} ",
+          "type": "git"
         },
         {
-          "type": "time",
-          "style": "diamond",
-          "foreground": "#ffffff",
           "background": "#2a6fde",
+          "foreground": "#ffffff",
           "leading_diamond": "<transparent,background>\ue0b0</>",
+          "properties": {
+            "time_format": "3:04PM"
+          },
+          "style": "diamond",
+          "template": " {{ .CurrentDate | date .Format }} ",
           "trailing_diamond": "\ue0b4",
           "template": " {{ .CurrentDate | date .Format }} ",
           "properties": {
@@ -93,10 +101,10 @@
       "alignment": "left",
       "segments": [
         {
-          "type": "text",
-          "style": "plain",
           "foreground": "#21c7c7",
-          "template": "\u2570\u2500"
+          "style": "plain",
+          "template": "\u2570\u2500",
+          "type": "text"
         },
         {
           "type": "exit",
@@ -108,11 +116,15 @@
           "template": "\ue285\ufb00 ",
           "properties": {
             "always_enabled": true
-          }
+          },
+          "style": "plain",
+          "template": "\ue285\ufb00 ",
+          "type": "exit"
         }
       ],
       "newline": true
     }
   ],
-  "osc99": true
+  "osc99": true,
+  "version": 2
 }
