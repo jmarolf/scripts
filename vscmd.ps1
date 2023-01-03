@@ -36,4 +36,6 @@ if ((test-path $path) -eq $false) {
 }
 
 $cmdPath = join-path $path "Launch-VsDevShell.ps1"
+pushd .
 & $cmdPath -VsInstanceId:$instanceId -Arch amd64 -VsWherePath "$vswhere"
+popd
