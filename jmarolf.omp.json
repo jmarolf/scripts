@@ -1,6 +1,5 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "version": 2,
   "blocks": [
     {
       "type": "prompt",
@@ -22,10 +21,7 @@
               "zsh": "\uf17c zsh",
               "powershell": "\ue70f powershell"
             }
-          },
-          "style": "diamond",
-          "template": " {{ .Name }} ",
-          "type": "shell"
+          }
         },
         {
           "background": "#67207a",
@@ -35,7 +31,6 @@
           "type": "text"
         },
         {
-          "background": "#5027d5",
           "foreground": "#ffffff",
           "background": "#321279",
           "template": "<parentBackground>\ue0b0</> \ue77f {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
@@ -43,7 +38,6 @@
             "root_icon": "\uf292"
           },
           "style": "diamond",
-          "template": "<parentBackground>\ue0b0</> \ue77f {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
           "type": "dotnet"
         },
         {
@@ -74,12 +68,10 @@
             "branch_icon": "\uf418 ",
             "fetch_status": true,
             "fetch_upstream_icon": true
-          },
-          "style": "powerline",
-          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350> \uf046 {{ .Staging.String }}</>{{ end }} ",
-          "type": "git"
+          }
         },
         {
+          "type": "time",
           "background": "#2a6fde",
           "foreground": "#ffffff",
           "leading_diamond": "<transparent,background>\ue0b0</>",
@@ -88,11 +80,7 @@
           },
           "style": "diamond",
           "template": " {{ .CurrentDate | date .Format }} ",
-          "trailing_diamond": "\ue0b4",
-          "template": " {{ .CurrentDate | date .Format }} ",
-          "properties": {
-            "time_format": "3:04PM"
-          }
+          "trailing_diamond": "\ue0b4"
         }
       ]
     },
@@ -107,8 +95,6 @@
           "type": "text"
         },
         {
-          "type": "exit",
-          "style": "plain",
           "foreground": "#e0f8ff",
           "foreground_templates": [
             "{{ if gt .Code 0 }}#ef5350{{ end }}"
@@ -118,7 +104,6 @@
             "always_enabled": true
           },
           "style": "plain",
-          "template": "\ue285\ufb00 ",
           "type": "exit"
         }
       ],
